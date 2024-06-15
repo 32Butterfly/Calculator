@@ -3,10 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
 public class Divide extends Button{
-    private final Calculator calculator;
-    public Divide(Calculator calculator){
+    public Divide(Calculator calculatorInstance){
         super("/");
-        this.calculator = calculator;
+        this.calculator = calculatorInstance;
         addActionListener(this);
         setBackground(new Color(204, 153, 102));
     }

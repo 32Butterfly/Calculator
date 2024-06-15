@@ -3,10 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
 public class Delete extends Button{
-    private final Calculator calculator;
-    public Delete(Calculator calculator){
+    public Delete(Calculator calculatorInstance){
         super("Del");
-        this.calculator = calculator;
+        this.calculator = calculatorInstance;
         addActionListener(this);
         setBackground(Color.GRAY);
     }

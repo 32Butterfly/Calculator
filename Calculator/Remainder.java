@@ -3,10 +3,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
 public class Remainder extends Button{
-    private final Calculator calculator;
-    public Remainder(Calculator calculator){
+    public Remainder(Calculator calculatorInstance){
         super("%");
-        this.calculator = calculator;
+        this.calculator = calculatorInstance;
         addActionListener(this);
         setBackground(Color.GRAY);
     }

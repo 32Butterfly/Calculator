@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class Calculator implements ActionListener {
     public JFrame frame;
     public JTextField textField;
-    private final Button[] operationButtons = new Button[9];
+    private final Button[] operationButtons = new Button[10];
     private final Numbers[] numberButtons = new Numbers[10];
     JPanel panel;
 
@@ -60,6 +60,7 @@ public class Calculator implements ActionListener {
         operationButtons[6] = new Delete(this);
         operationButtons[7] = new Clear(this);
         operationButtons[8] = new Remainder(this);
+        operationButtons[9] = new Root(this);
     }
 
     private void setupOperationButtons(){
@@ -114,8 +115,8 @@ public class Calculator implements ActionListener {
 
         //5th row of buttons
         panel.add(numberButtons[0]);
-        panel.add(new JLabel()); //serves as an empty space
         panel.add(operationButtons[4]);
+        panel.add(operationButtons[9]);
         panel.add(operationButtons[5]);
     }
 }

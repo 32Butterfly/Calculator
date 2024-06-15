@@ -4,10 +4,9 @@ import java.awt.event.MouseEvent;
 
 public class Subtraction extends Button{
     private int i = 0;
-    private final Calculator calculator;
-    public Subtraction(Calculator calculator){
+    public Subtraction(Calculator calculatorInstance){
         super("-");
-        this.calculator = calculator;
+        this.calculator = calculatorInstance;
         addActionListener(this);
         setBackground(new Color(204, 153, 102));
     }

@@ -3,11 +3,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
 public class Multiply extends Button{
-    private final Calculator calculator;
-    public Multiply(Calculator calculator){
+
+    public Multiply(Calculator calculatorInstance){
         super("×");
-        this.calculator = calculator;
         addActionListener(this);
+        calculator = calculatorInstance;
         setBackground(new Color(204, 153, 102));
     }
 

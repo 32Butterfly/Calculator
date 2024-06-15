@@ -8,10 +8,9 @@ This is the most important button since it is responsible for calculating the re
 Therefore every single exception will be thrown from here such as dividing by zero.
  */
 public class Equals extends Button{
-    private final Calculator calculator;
-    public Equals(Calculator calculator){
+    public Equals(Calculator calculatorInstance){
         super("=");
-        this.calculator = calculator;
+        this.calculator = calculatorInstance;
         addActionListener(this);
         setBackground(new Color(218, 165, 32));
     }
@@ -25,7 +24,7 @@ public class Equals extends Button{
                         "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            else {
+            else if (calculator.operation != '√'){
                 calculator.num2 = Double.parseDouble(calculator.textField.getText());
             }
 
@@ -56,6 +55,9 @@ public class Equals extends Button{
                         calculator.result = calculator.num1 % calculator.num2;
                     }
                     break;
+                case '√':
+                    doRoot();
+                    break;
             }
             calculator.textField.setText(String.valueOf(calculator.result));
             calculator.num1 = calculator.result;
@@ -70,6 +72,20 @@ public class Equals extends Button{
                     "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    private void doRoot(){
+        String text = calculator.textField.getText();
+        String subText = text.substring(1);
+        calculator.num1 = Double.parseDouble(subText);
+
+        if (calculator.num1 < 0 ) {
+            throw new ArithmeticException("Root cannot be negative");
+        }
+        else{
+            calculator.result = Math.sqrt(calculator.num1);
+        }
+    }
+
 
     @Override
     protected void onMouseEntered(MouseEvent e) {

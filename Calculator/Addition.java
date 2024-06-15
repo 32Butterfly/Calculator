@@ -3,11 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
 public class Addition extends Button{
-    private final Calculator calculator;
 
-    public Addition(Calculator calculator) {
+    public Addition(Calculator calculatorInstance) {
         super("+");
-        this.calculator = calculator;
+        this.calculator = calculatorInstance;
         addActionListener(this);
         setBackground(new Color(204, 153, 102));
     }

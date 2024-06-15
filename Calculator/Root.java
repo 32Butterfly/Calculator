@@ -2,27 +2,27 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
-public class Decimal extends Button{
-    public Decimal(Calculator calculatorInstance){
-        super(".");
+public class Root extends Button{
+    public Root(Calculator calculatorInstance) {
+        super("√");
         this.calculator = calculatorInstance;
         addActionListener(this);
         setBackground(new Color(89, 55, 50));
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        //make it so whenever decimal is places in the textField text . is added
-        calculator.textField.setText(calculator.textField.getText().concat("."));
+        calculator.operation = '√';
+        calculator.textField.setText("√");
     }
 
     protected void onMouseEntered(MouseEvent e) {
-        // Default Decimal hover behavior
+        // Custom hover behavior for Number button
         setBackground(new Color(126, 91, 86));
     }
 
     protected void onMouseExited(MouseEvent e) {
-        // Default Decimal state behavior
+        // Custom normal state behavior for Number button
         setBackground(new Color(89, 55, 50));
     }
-
 }

@@ -9,9 +9,10 @@ import java.awt.event.MouseListener;
 public abstract class Button extends JButton implements ActionListener {
     protected String label;
 
+    protected Calculator calculator;
+
     public Button(String label) {
         super(label);
-        this.label = label;
         setFocusable(false);
         setBorder(BorderFactory.createEmptyBorder()); //make sure all the buttons don't have an ugly border
 

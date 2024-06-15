@@ -6,8 +6,8 @@ public class Addition extends Button{
 
     public Addition(Calculator calculatorInstance) {
         super("+");
-        this.calculator = calculatorInstance;
         addActionListener(this);
+        calculator = calculatorInstance;
         setBackground(new Color(204, 153, 102));
     }
 

@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
 public class Clear extends Button{
     public Clear(Calculator calculatorInstance){
         super("AC");
-        this.calculator = calculatorInstance;
+        calculator = calculatorInstance;
         addActionListener(this);
         setBackground(Color.GRAY);
     }

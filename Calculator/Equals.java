@@ -10,8 +10,8 @@ Therefore every single exception will be thrown from here such as dividing by ze
 public class Equals extends Button{
     public Equals(Calculator calculatorInstance){
         super("=");
-        this.calculator = calculatorInstance;
         addActionListener(this);
+        calculator = calculatorInstance;
         setBackground(new Color(218, 165, 32));
     }
     @Override
@@ -28,37 +28,9 @@ public class Equals extends Button{
                 calculator.num2 = Double.parseDouble(calculator.textField.getText());
             }
 
-            // Make calculation based on the operation character
-            switch (calculator.operation) {
-                case '+':
-                    calculator.result = calculator.num1 + calculator.num2;
-                    break;
-                case '-':
-                    calculator.result = calculator.num1 - calculator.num2;
-                    break;
-                case '*':
-                    calculator.result = calculator.num1 * calculator.num2;
-                    break;
-                case '/':
-                    if (calculator.num2 == 0) {
-                        throw new ArithmeticException("Division by zero");
-                    }
-                    else {
-                        calculator.result = calculator.num1 / calculator.num2;
-                    }
-                    break;
-                case '%':
-                    if (calculator.num2 == 0) {
-                        throw new ArithmeticException("Cannot get remainder of 0");
-                    }
-                    else {
-                        calculator.result = calculator.num1 % calculator.num2;
-                    }
-                    break;
-                case '√':
-                    doRoot();
-                    break;
-            }
+            performOperation();
+
+            //Make sure we set num1 to the result and the default operation to +
             calculator.textField.setText(String.valueOf(calculator.result));
             calculator.num1 = calculator.result;
             calculator.operation = '+';
@@ -73,8 +45,51 @@ public class Equals extends Button{
         }
     }
 
+    private void performOperation(){
+        // Make calculation based on the operation character
+        switch (calculator.operation) {
+            case '+':
+                calculator.result = calculator.num1 + calculator.num2;
+                break;
+            case '-':
+                calculator.result = calculator.num1 - calculator.num2;
+                break;
+            case '*':
+                calculator.result = calculator.num1 * calculator.num2;
+                break;
+            case '/':
+                doDivision();
+                break;
+            case '%':
+                doRemainder();
+                break;
+            case '√':
+                doRoot();
+                break;
+        }
+    }
+
+    private void doRemainder(){
+        if (calculator.num2 == 0) {
+            throw new ArithmeticException("Cannot get remainder of 0");
+        }
+        else {
+            calculator.result = calculator.num1 % calculator.num2;
+        }
+    }
+
+    private void doDivision(){
+        if (calculator.num2 == 0) {
+            throw new ArithmeticException("Division by zero");
+        }
+        else {
+            calculator.result = calculator.num1 / calculator.num2;
+        }
+    }
+
     private void doRoot(){
         String text = calculator.textField.getText();
+        //We get the string from 2nd character since the first symbol is the root
         String subText = text.substring(1);
         calculator.num1 = Double.parseDouble(subText);
 

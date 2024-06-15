@@ -18,19 +18,8 @@ public class Calculator implements ActionListener {
     Font font = new Font("Roboto", Font.BOLD, 22);
 
     public Calculator() {
-        //Create the window
-        frame = new JFrame("Calculator :3");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(420, 550);
-        frame.setLayout(null);
-        frame.setResizable(false); //make sure the size can't be changed
-        frame.getContentPane().setBackground(new Color(40, 40, 40));
-
-        textField = new JTextField();
-        textField.setBounds(26, 25, 356,50);
-        textField.setFont(font);
-        textField.setEditable(false);
-        textField.setFocusable(false);
+        createWindow();
+        setupTextField();
 
         //create all of our buttons
         createOperationButtons();
@@ -49,6 +38,24 @@ public class Calculator implements ActionListener {
         frame.add(textField);
         frame.setVisible(true);
     }
+
+    private void createWindow(){
+        frame = new JFrame("Calculator :3");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(420, 550);
+        frame.setLayout(null);
+        frame.setResizable(false); //make sure the size can't be changed
+        frame.getContentPane().setBackground(new Color(40, 40, 40));
+    }
+
+    private void setupTextField(){
+        textField = new JTextField();
+        textField.setBounds(26, 25, 356,50);
+        textField.setFont(font);
+        textField.setEditable(false);
+        textField.setFocusable(false);
+    }
+
 
     private void createOperationButtons(){
         operationButtons[0] = new Addition(this);

@@ -5,8 +5,8 @@ import java.awt.event.MouseEvent;
 public class Divide extends Button{
     public Divide(Calculator calculatorInstance){
         super("/");
-        this.calculator = calculatorInstance;
         addActionListener(this);
+        calculator = calculatorInstance;
         setBackground(new Color(204, 153, 102));
     }
     @Override

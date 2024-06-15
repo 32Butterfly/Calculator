@@ -6,8 +6,8 @@ public class Subtraction extends Button{
     private int i = 0;
     public Subtraction(Calculator calculatorInstance){
         super("-");
-        this.calculator = calculatorInstance;
         addActionListener(this);
+        calculator = calculatorInstance;
         setBackground(new Color(204, 153, 102));
     }
 

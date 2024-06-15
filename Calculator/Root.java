@@ -5,8 +5,8 @@ import java.awt.event.MouseEvent;
 public class Root extends Button{
     public Root(Calculator calculatorInstance) {
         super("√");
-        this.calculator = calculatorInstance;
         addActionListener(this);
+        calculator = calculatorInstance;
         setBackground(new Color(89, 55, 50));
     }
 

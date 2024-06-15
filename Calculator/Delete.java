@@ -5,8 +5,8 @@ import java.awt.event.MouseEvent;
 public class Delete extends Button{
     public Delete(Calculator calculatorInstance){
         super("Del");
-        this.calculator = calculatorInstance;
         addActionListener(this);
+        calculator = calculatorInstance;
         setBackground(Color.GRAY);
     }
     @Override

@@ -7,7 +7,6 @@ import java.awt.event.MouseListener;
 
 //Button class which all specific types of buttons MUST inherit
 public abstract class Button extends JButton implements ActionListener {
-    protected String label;
 
     protected Calculator calculator;
 
@@ -15,7 +14,6 @@ public abstract class Button extends JButton implements ActionListener {
         super(label);
         setFocusable(false);
         setBorder(BorderFactory.createEmptyBorder()); //make sure all the buttons don't have an ugly border
-
         Font font = new Font("Roboto", Font.BOLD, 20);
         setFont(font);
         setForeground(Color.WHITE);

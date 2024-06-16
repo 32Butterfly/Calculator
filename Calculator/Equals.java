@@ -17,17 +17,7 @@ public class Equals extends Button{
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            // Check if the textField is empty or if the input contains the '-' (the start of a negative number)
-            if (calculator.textField.getText().isEmpty() || calculator.textField.getText().equals("-")) {
-                JOptionPane.showMessageDialog(calculator.frame, "Incorrect expression formatting. " +
-                                "Please ensure that you\n input the 1st number, its operation, and the 2nd number",
-                        "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            else if (calculator.operation != '√'){
-                calculator.num2 = Double.parseDouble(calculator.textField.getText());
-            }
-
+            checkIfValidInput();
             performOperation();
 
             //Make sure we set num1 to the result and the default operation to +
@@ -42,6 +32,19 @@ public class Equals extends Button{
         catch (ArithmeticException ex) {
             JOptionPane.showMessageDialog(calculator.frame, ex.getMessage(),
                     "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void checkIfValidInput(){
+        // Check if the textField is empty or if the input contains the '-' (the start of a negative number)
+        if (calculator.textField.getText().isEmpty() || calculator.textField.getText().equals("-")) {
+            JOptionPane.showMessageDialog(calculator.frame, "Incorrect expression formatting. " +
+                            "Please ensure that you\n input the 1st number, its operation, and the 2nd number",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        //we need to check √ because it only needs 1 number otherwise the line below will cause an exception
+        else if (calculator.operation != '√'){
+            calculator.num2 = Double.parseDouble(calculator.textField.getText());
         }
     }
 

@@ -56,7 +56,6 @@ public class Calculator implements ActionListener {
         textField.setFocusable(false);
     }
 
-
     private void createOperationButtons(){
         operationButtons[0] = new Addition(this);
         operationButtons[1] = new Subtraction(this);

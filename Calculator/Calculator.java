@@ -8,7 +8,7 @@ public class Calculator implements ActionListener {
     public JTextField textField;
     private final Button[] operationButtons = new Button[10];
     private final Numbers[] numberButtons = new Numbers[10];
-    JPanel panel;
+    private JPanel panel;
 
     double num1 = 0, num2 = 0, result = 0;
     /*default operation is + so that if you just input a number and press = it will just add that
@@ -26,10 +26,7 @@ public class Calculator implements ActionListener {
         setupOperationButtons();
         createNumberButtons();
 
-        panel = new JPanel();
-        panel.setBounds(25, 100, 360, 385);
-        panel.setLayout(new GridLayout(5, 4, 3, 3));
-        panel.setBackground(new Color(40, 40, 40));
+        createPanel();
 
         //Add buttons to panel. If you have created a new button make sure to add it to this METHOD!!!!!!!
         addButtonsToPanel();
@@ -37,6 +34,13 @@ public class Calculator implements ActionListener {
         frame.add(panel);
         frame.add(textField);
         frame.setVisible(true);
+    }
+
+    private void createPanel(){
+        panel = new JPanel();
+        panel.setBounds(25, 100, 360, 385);
+        panel.setLayout(new GridLayout(5, 4, 3, 3));
+        panel.setBackground(new Color(40, 40, 40));
     }
 
     private void createWindow(){
@@ -96,8 +100,8 @@ public class Calculator implements ActionListener {
      // Please add your button to this method!!!!!!
     private void addButtonsToPanel() {
         //1st row of buttons
-        panel.add(operationButtons[6]);
         panel.add(operationButtons[7]);
+        panel.add(operationButtons[6]);
         panel.add(operationButtons[8]);
         panel.add(operationButtons[3]);
 

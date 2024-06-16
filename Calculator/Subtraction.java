@@ -18,7 +18,7 @@ public class Subtraction extends Button{
         to the textField, so it acts like an ability to create a negative number */
         if (calculator.textField.getText().isEmpty() && i == 0){
             calculator.textField.setText("-");
-            i++;
+            ++i;
         }
         else {
             calculator.num1 = Double.parseDouble(calculator.textField.getText());

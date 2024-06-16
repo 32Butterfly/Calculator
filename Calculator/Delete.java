@@ -4,7 +4,7 @@ import java.awt.event.MouseEvent;
 
 public class Delete extends Button{
     public Delete(Calculator calculatorInstance){
-        super("Del");
+        super("DEL");
         addActionListener(this);
         calculator = calculatorInstance;
         setBackground(Color.GRAY);
@@ -13,7 +13,7 @@ public class Delete extends Button{
     public void actionPerformed(ActionEvent e) {
         String str = calculator.textField.getText();
         calculator.textField.setText("");
-        for (int i = 0; i < str.length() - 1; i++) {
+        for (int i = 0; i < str.length() - 1; ++i) {
             calculator.textField.setText(calculator.textField.getText() + str.charAt(i));
         }
     }

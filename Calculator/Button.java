@@ -8,6 +8,8 @@ import java.awt.event.MouseListener;
 //Button class which all specific types of buttons MUST inherit
 public abstract class Button extends JButton implements ActionListener {
 
+    protected static int i = 0;
+
     protected Calculator calculator;
 
     public Button(String label) {

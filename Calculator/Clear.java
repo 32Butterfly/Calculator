@@ -14,6 +14,7 @@ public class Clear extends Button{
         calculator.textField.setText("");
         calculator.num1 = 0;
         calculator.num2 = 0;
+        i = 0;
     }
 
     @Override

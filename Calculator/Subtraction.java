@@ -3,7 +3,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
 public class Subtraction extends Button{
-    private int i = 0;
     public Subtraction(Calculator calculatorInstance){
         super("-");
         addActionListener(this);
@@ -18,6 +17,12 @@ public class Subtraction extends Button{
         to the textField, so it acts like an ability to create a negative number */
         if (calculator.textField.getText().isEmpty() && i == 0){
             calculator.textField.setText("-");
+            ++i;
+        }
+        //make sure negative number for the root can be inputted.
+        else if (calculator.textField.getText().equals("√") && i == 0){
+            String text = calculator.textField.getText();
+            calculator.textField.setText(text + "-");
             ++i;
         }
         else {

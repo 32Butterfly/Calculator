@@ -13,8 +13,12 @@ public class Delete extends Button{
     public void actionPerformed(ActionEvent e) {
         String str = calculator.textField.getText();
         calculator.textField.setText("");
-        for (int i = 0; i < str.length() - 1; ++i) {
-            calculator.textField.setText(calculator.textField.getText() + str.charAt(i));
+        for (int index = 0; index < str.length() - 1; ++index) {
+            calculator.textField.setText(calculator.textField.getText() + str.charAt(index));
+            //if the char is minus we can set the i to 0 so we can input another negative number
+            if (str.charAt(index) == '-'){
+                i = 0;
+            }
         }
     }
     @Override

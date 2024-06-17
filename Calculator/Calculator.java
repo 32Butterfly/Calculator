@@ -10,12 +10,12 @@ public class Calculator implements ActionListener {
     private final Numbers[] numberButtons = new Numbers[10];
     private JPanel panel;
 
-    double num1 = 0, num2 = 0, result = 0;
+    public double num1 = 0, num2 = 0, result = 0;
     /*default operation is + so that if you just input a number and press = it will just add that
     number to 0 the second time it will add to the previous result and so on */
     char operation = '+';
 
-    Font font = new Font("Roboto", Font.BOLD, 22);
+    private final Font font = new Font("Roboto", Font.BOLD, 22);
 
     public Calculator() {
         createWindow();
@@ -97,7 +97,7 @@ public class Calculator implements ActionListener {
         }
     }
 
-     // Please add your button to this method!!!!!!
+     //Please add your button to this method!!!!!!
     private void addButtonsToPanel() {
         //1st row of buttons
         panel.add(operationButtons[7]);
